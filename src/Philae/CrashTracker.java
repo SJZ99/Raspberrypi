@@ -14,7 +14,7 @@ public class CrashTracker {
 	}
 	
 	/**
-	 * Write log.
+	 * Write log. Contain Date()
 	 * @param event 
 	 */
 	public void write(String event){
@@ -26,7 +26,18 @@ public class CrashTracker {
 			bw.flush();
 			bw.close();
 		}catch(IOException e) {
-			
+			System.out.println(e.getMessage());
+		}
+	}
+	public void writeln(String event) {
+		try {
+			BufferedWriter bw 
+				= new BufferedWriter(new FileWriter(f, true));
+			bw.write(event + "\n");
+			bw.flush();
+			bw.close();
+		}catch(IOException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
